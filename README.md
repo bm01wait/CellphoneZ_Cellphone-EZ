@@ -6,4 +6,4 @@
 Chào mừng đến với Git project của tôi.**
 
 Dưới đây là các đường link liên quan:
-https://docs.google.com/spreadsheets/d/1lmBrxSZQxSPqtgL0OPku_0q9KOHndf2WoXQGxc3d79E/edit#gid=0
+File câu hỏi Q&A: https://docs.google.com/spreadsheets/d/1lmBrxSZQxSPqtgL0OPku_0q9KOHndf2WoXQGxc3d79E/edit#gid=0
