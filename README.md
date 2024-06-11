@@ -8,3 +8,5 @@ Chào mừng đến với Git project của tôi.**
 Dưới đây là các đường link liên quan:
 
 File câu hỏi Q&A: https://docs.google.com/spreadsheets/d/1lmBrxSZQxSPqtgL0OPku_0q9KOHndf2WoXQGxc3d79E/edit#gid=0
+
+Tài liệu đặc tả yêu cầu phần mềm: https://docs.google.com/document/d/1mkKqb11yEu6BnX4kOyvQMPZFTNJmRCVtuP5OwF9YqzA/edit?usp=sharing
