@@ -12,3 +12,5 @@ File câu hỏi Q&A: https://docs.google.com/spreadsheets/d/1lmBrxSZQxSPqtgL0OPk
 Tài liệu đặc tả yêu cầu phần mềm: https://docs.google.com/document/d/1mkKqb11yEu6BnX4kOyvQMPZFTNJmRCVtuP5OwF9YqzA/edit?usp=sharing
 
 Mockup: https://www.figma.com/design/9g69rHOqTEjB7mJtcByo5T/Untitled?node-id=0-1&t=pIHtYmffXrr4uEbP-0
+
+Ghi chú: https://docs.google.com/document/d/1N9IF4nR5Y1yhEqNnmwS8HwQPqQ0fOXcCXcvHjQfCVYI/edit
