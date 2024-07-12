@@ -1,0 +1,97 @@
+USE lab301x;
+
+INSERT INTO role (id, created_at, updated_at, name) VALUES
+(1, now(), now(), "admin"),
+(2, now(), now(), "employee"),
+(3, now(), now(), "user");
+SELECT * FROM role;
+
+INSERT INTO user (created_at,updated_at, name, email, password, address, role_id) VALUES
+(NOW(),NOW(),  'admin' , 'admin@admin.com', '1234', '123 ABC Street', 1);
+SELECT * FROM user;
+-- TRUNCATE TABLE user;
+
+INSERT INTO color (created_at,updated_at, code, name) VALUES
+(NOW(),NOW(),  '#000000' , 'black'), 
+(NOW(),NOW(),  '#f7f0c8' , 'light tan'), 
+(NOW(),NOW(),  '#f4bbff' , 'electric lavender'),
+(NOW(),NOW(),  '#9cd6b6' , 'green mint'),
+(NOW(),NOW(),  '#e1e6e3' , 'urban grey'),
+(NOW(),NOW(),  '#faf2f2' , 'platinum'),
+(NOW(),NOW(),  '#ffffff' , 'white') ;
+SELECT * FROM color;
+
+
+INSERT INTO brand (id, created_at, updated_at, name) VALUES
+(1, NOW(), NOW(), "Apple"),
+(2, NOW(), NOW(), "Nokia"),
+(3, NOW(), NOW(), "Samsung"),
+(4, NOW(), NOW(), "ASUS"),
+(5, NOW(), NOW(), "HUAWEI"),
+(6, NOW(), NOW(), "Xiaomi");
+SELECT * FROM brand;
+
+INSERT INTO category (id, created_at, updated_at, name) VALUES
+(1, NOW(), NOW(), "Điện thoại"),
+(2, NOW(), NOW(), "Tai nghe"),
+(3, NOW(), NOW(), "Máy tính bảng"),
+(4, NOW(), NOW(), "Quạt tản nhiệt"),
+(5, NOW(), NOW(), "Ốp lưng"),
+(6, NOW(), NOW(), "Củ sạc");
+SELECT * FROM category;
+
+INSERT INTO product (id, created_at, updated_at, name, description, price, status,is_delete,is_fav, version_name, brand_id, category_id, current_page, page_size, total_pages) VALUES
+(1, NOW(), NOW(), 'Nokia C32 4GB 128GB', 'Điện thoại', 2000000, 'Đang bán', 0, 0, '1.0.1', 2, 1, 0, 0, 0),
+(2, NOW(), NOW(), 'AirPods 2', 'Air pods', 2000000, 'Đang bán', 0, 0, '1.0.1', 1, 2, 0, 0, 0),
+(3, NOW(), NOW(), 'Samsung Galaxy S24', 'Điện thoại', 2000000, 'Đang bán', 0, 0, '1.0.1', 3, 1, 0, 0, 0),
+(4, NOW(), NOW(), 'Galaxy Z Flip5', 'Điện thoại', 25989700, 'Đang bán', 0, 0, '256GB | 8GB', 3, 1, 0, 0, 0),
+(5, NOW(), NOW(), 'ROG Phone 7', 'Mới, đầy đủ phụ kiện từ nhà sản xuất', 23000000, 'Khuyến mại', 0, 0, 'Pro', 4, 1, 0, 0, 0),
+(6, NOW(), NOW(), 'TUF Gaming 450W', 'Tự điển về cuộn cảm được trải qua các bài kiểm tra khắt khe đạt được Chứng nhận độ bền chuẩn quân sự. Thiết kế quạt vòng bi kép có tuổi thọ cao giúp tải trọng hệ thống đồng đều trong môi trường thông thường. Một lớp phủ PCB bảo vệ bảo vệ bộ nguồn khỏi hư hại, bụi và nhiệt độ cao.', 3450000, 'Khuyến mại', 0, 0, '450W', 4, 4, 0, 0, 0),
+(7, NOW(), NOW(), 'iPad Air', 'Giới hạn 6 iPad Air 11 inch cho mỗi khách hàng.', 16999000, 'Khuyến mại', 0, 0, '11 inch', 1, 3, 0, 0, 0),
+(8, NOW(), NOW(), 'iPad Air', 'Giới hạn 6 iPad Air 13 inch cho mỗi khách hàng. Giới hạn 6 iPad Air 13 inch cho mỗi khách hàng.', 22499000, 'Khuyến mại', 0, 0, '13 inch', 1, 3, 0, 0, 0),
+(9, NOW(), NOW(), 'FreeBuds', 'Chống Ồn Chủ Động Thông Minh ANC 3.0 | Âm Thanh Đỉnh Cao Punchy Bass | Thời Lượng Sử Dụng Lên Đến 35 Giờ', 3000000, 'Đang bán', 0, 0, '6i', 5, 2, 0, 0, 0),
+(10, NOW(), NOW(), 'Nova', 'Mới, đầy đủ phụ kiện từ nhà sản xuất k Đổi trả trong 30 ngày bao gồm cả VAT.', 3540000, 'Khuyến mại', 0, 0, '8', 5, 1, 0, 0, 0),
+(11, NOW(), NOW(), 'Galaxy Z Fold5', 'Má ra màn hình cao cấp, tuyệt đẹp và đắm chìm', 30000000, 'Đang bán', 0, 0, 'Galaxy A', 3, 1, 0, 0, 0),
+(12, NOW(), NOW(), 'AirPods', 'Thiết bị AirPods Max, sự cân bằng hoàn hảo giữa âm thanh vượt trội và trải nghiệm đơn giản kỳ diệu của AirPods. Trải nghiệm âm thanh trung thực.', 11499000, 'Đang bán', 0, 0, 'Max', 1, 2, 0, 0, 0),
+(13, NOW(), NOW(), 'iPad', 'Trả góp theo tháng với phí dịch vụ thực tế 1,67%', 9999000, 'Đang bán', 0, 0, '10.9 inch', 1, 3, 0, 0, 0),
+(14, NOW(), NOW(), 'Galaxy M55', 'Trải nghiệm hình ảnh sống động và sắc nét với màn hình AMOLED 6.7 inch.', 11199000, 'Khuyến mại', 0, 0, '5G', 3, 1, 0, 0, 0);
+SELECT * FROM product;
+
+INSERT INTO product_size (id, created_at, updated_at, quantity, size, product_id) VALUES
+(1, NOW(), NOW(), 10, "6''", 1),
+(2, NOW(), NOW(), 10, "450W", 2),
+(3, NOW(), NOW(), 10, "7.6''", 3),
+(4, NOW(), NOW(), 10, "6.8''", 4),
+(5, NOW(), NOW(), 10, "6.5''", 5),
+(6, NOW(), NOW(), 10, "450W", 6),
+(7, NOW(), NOW(), 10, "11''", 7),
+(8, NOW(), NOW(), 10, "13''", 8),
+(9, NOW(), NOW(), 10, "100W", 9),
+(10, NOW(), NOW(), 10, "10''", 10),
+(11, NOW(), NOW(), 10, "11.5''", 11),
+(12, NOW(), NOW(), 10, "300W", 12),
+(13, NOW(), NOW(), 10, "11.7''", 13),
+(14, NOW(), NOW(), 10, "7.5''", 14);
+SELECT * FROM product_size;
+
+
+
+-- TRUNCATE TABLE product_size;
+-- TRUNCATE TABLE order_web;
+-- TRUNCATE TABLE order_web_detail;
+-- TRUNCATE TABLE user_wishlist;
+-- SELECT * FROM order_web;
+-- SELECT * FROM user_wishlist;
+-- select * from order_web_detail;
+-- SELECT * FROM cart_item;
+-- TRUNCATE TABLE cart_item;
+-- ALTER TABLE user AUTO_INCREMENT = 1;
+
+-- SELECT * FROM product_review;
+
+-- SELECT * FROM brand;
+-- SELECT * FROM category;
+-- SELECT * FROM password_reset_token;
+-- truncate password_reset_token;
+-- INSERT INTO role(`id`,`name`) VALUES (1, 'Employee'), (2, 'User');
+-- ALTER TABLE password_reset_token DROP INDEX UK_f90ivichjaokvmovxpnlm5nin; 
