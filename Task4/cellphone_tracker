@@ -1,0 +1,255 @@
+-- Create database lab301x;
+USE lab301x;
+/*CREATE TABLE Users (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    Username VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    PasswordHash VARCHAR(255) NOT NULL,
+    Phone VARCHAR(50),
+    Address VARCHAR(100),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Role VARCHAR(50) NOT NULL
+);
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    Brand VARCHAR(50) NOT NULL,
+    Description TEXT,
+    Price DECIMAL(10, 2) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE Sizes (
+    SizeID INT PRIMARY KEY AUTO_INCREMENT,
+    SizeName VARCHAR(50) NOT NULL
+);
+CREATE TABLE Colors (
+    ColorID INT PRIMARY KEY AUTO_INCREMENT,
+    ColorName VARCHAR(50) NOT NULL
+);
+CREATE TABLE ProductSizes (
+    ProductID INT,
+    SizeID INT,
+    PRIMARY KEY (ProductID, SizeID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (SizeID) REFERENCES Sizes(SizeID)
+);
+CREATE TABLE ProductColors (
+    ProductID INT,
+    ColorID INT,
+    PRIMARY KEY (ProductID, ColorID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
+    FOREIGN KEY (ColorID) REFERENCES Colors(ColorID)
+);
+CREATE TABLE ProductImages (
+    ImageID INT PRIMARY KEY AUTO_INCREMENT,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ProductID INT,
+    Data LONGBLOB,
+    IsPrimary BIT(1),
+    Path VARCHAR(500) NOT NULL,
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
+CREATE TABLE CartItem (
+    CartItemID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    ProductID INT,
+    Quantity INT NOT NULL,
+    AddedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    TotalPrice DECIMAL(10, 2) NOT NULL,
+    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+CREATE TABLE OrderItems (
+    OrderItemID INT PRIMARY KEY AUTO_INCREMENT,
+    OrderID INT,
+    ProductID INT,
+    Quantity INT NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);*/
+CREATE TABLE `order_web` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`consignee` VARCHAR(100),
+`consignee_phone` VARCHAR(20),
+`delivery_address` VARCHAR(200),
+`delivery_status` VARCHAR(50),
+`payment_method` VARCHAR(50),
+`payment_status` VARCHAR(50),
+`sent_mail` BIT(1),
+`total_amount` BIGINT,
+`customer_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `user_wishlist` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`customer_name` VARCHAR(255),
+`product_id` BIGINT,
+`customer_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `order_web_detail` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`price` BIGINT,
+`quantity` INT,
+`total_amount` BIGINT,
+`order_web_id` BIGINT,
+`product_size_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `user` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`address` VARCHAR(200),
+`date_of_birth` DATE,
+`email` VARCHAR(100),
+`image_data` LONGBLOB,
+`image_path` VARCHAR(500),
+`is_delete` BIT (1),
+`name` VARCHAR(100),
+`password` VARCHAR(200),
+`phone` VARCHAR(20),
+`role_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `product` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`description` VARCHAR(5000),
+`is_delete` BIT(1),
+`is_fav` BIT(1),
+`name` VARCHAR(100),
+`price` BIGINT,
+`status` VARCHAR(50),
+`version_name` VARCHAR(50),
+`brand_id` BIGINT,
+`category_id` BIGINT,
+`current_page`INT,
+`page_size` INT,
+`total_pages` INT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `product_color` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`color_id` BIGINT,
+`product_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `product_size` (
+`id` BIGINT AUTO_INCREMENT,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`quantity` INT,
+`size` VARCHAR(255),
+`product_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `product_view` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`product_id` BIGINT,
+`customer_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `color` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`code` VARCHAR(50),
+`name` VARCHAR(50),
+PRIMARY KEY (`id`)
+);
+CREATE TABLE `delivery_log` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`delivery_status` VARCHAR(50),
+`order_web_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `product_image` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`data` LONGBLOB,
+`is_primary` BIT(1),
+`path` VARCHAR(500),
+`size` INT,
+`product_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `brand` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`name` VARCHAR(50),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE `category` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`name` VARCHAR(50),
+PRIMARY KEY (id)
+);
+CREATE TABLE `cart_item` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`customer_name` VARCHAR(50),
+`quantity` INT,
+`product_size_id` BIGINT,
+`customer_id` BIGINT,
+PRIMARY KEY (id)
+);
+CREATE TABLE `product_review` (
+`id` BIGINT auto_increment,
+`created_at` DATETIME(6),
+`updated_at` DATETIME(6),
+`content` VARCHAR(8000),
+`rating` SMALLINT,
+`title` VARCHAR(50),
+`customer_name` VARCHAR(255),
+`product_id` BIGINT,
+`customer_id` BIGINT,
+PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `role` (
+    `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
+    `created_at` datetime,
+    `updated_at` datetime,
+    `name` VARCHAR(50) NOT NULL
+);
+CREATE TABLE `password_reset_token` (
+    `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
+    `token` VARCHAR(255) NOT NULL,
+    `user_id` BIGINT NOT NULL,
+    `expiry_date` DATETIME NOT NULL,
+	FOREIGN KEY (`user_id`) REFERENCES User(`id`)
+);
+-- CREATE TABLE `user_role` (
+--     `user_id` BIGINT NOT NULL,
+--     `role_id` BIGINT NOT NULL,
+--     PRIMARY KEY (`user_id`, `role_id`),
+--     FOREIGN KEY (`user_id`) REFERENCES users(`id`),
+--     FOREIGN KEY (`role_id`) REFERENCES role(`id`)
+-- );
