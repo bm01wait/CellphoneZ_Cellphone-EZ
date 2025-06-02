@@ -1,4 +1,4 @@
-# CellphoneZ
+# CellphoneZ (đọc là Cellphone-EZ)
 
 **Xin chào,**
 
